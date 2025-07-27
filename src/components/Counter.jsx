@@ -1,30 +1,21 @@
 import { useState } from "react";
 
+function Counter() {
+const [arr, setArr] = useState([])
 
-
-
-function Counter () {
-const [count, setCount ] = useState(0)
-
-function increment  ()  {
-  setCount ((prevCounter) => prevCounter + 1)
-  setCount ((prevCounter) => prevCounter + 1)
+function addPlus () {
+setArr(prevArr => [...prevArr, "+"])
 }
 
+function addMinus () {
+setArr(prevArr => [...prevArr, "-"])
+}
 
-  function decrement ()  {
-    setCount ((prevCounter) => prevCounter - 1)
-    setCount ((prevCounter) => prevCounter - 1)
-  }
-
-
-
-  return <div className="counter__wrap">
-    <button onClick={decrement} className="cbtn">-</button>
-  {count}
-  <button onClick={increment} className="cbtn">+</button>
-</div>
-
+  return <div>
+   <button onClick={addMinus}>-</button>
+    <button onClick={addPlus}>+</button>
+    {arr}
+  </div>;
 }
 
 export default Counter;
