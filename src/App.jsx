@@ -1,27 +1,19 @@
 import "./App.css";
-import Todo from "./components/Todo.jsx";
-import Title from "./components/Title.jsx";
-import Modal from "./components/Modal.jsx";
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Nav from "./components/Nav.jsx"
+import Users from "./pages/Users";
 
 function App() {
   return (
-    <div>
-      <Title />
-      <div>
-        <input type="text" onChange={(event) => {
-           console.log(event.target.value)
-        }} />
-        <button>Add todo</button>
-      </div>
-      <div className="todo__wrapper">
-        <Todo
-          title="Finish Frontend Simplified" />
-        <Todo
-          title="Finish Interview Section"/>
-        <Todo title="Land a 100K job" />
-      </div>
-    <Modal modal__title="Are you sure you want to delete?"/>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/users/:id" element={<Users />} />
+        </Routes>
+      </Router>
   );
 }
 
